@@ -16,8 +16,6 @@ export default function Card({ word, meaning, translate, pronunciation, audio_ur
     const toggleDetails = () => {
         setShowDetails(!showDetails)
     }
-    
-    console.log("synonyms:", synonyms, typeof synonyms,'aq')
 
     return (
         <div className="card shadow-sm rounded-4 p-4 mt-3">
@@ -48,7 +46,7 @@ export default function Card({ word, meaning, translate, pronunciation, audio_ur
                     </ul>
 
                     {audio_url && (
-                        <audio controls>
+                        <audio key={audio_url} controls>
                             <source src={audio_url} type="audio/mpeg" />
                         </audio>
                     )}
