@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 interface cardProps {
     word: string
     meaning: string
@@ -9,31 +11,51 @@ interface cardProps {
 }
 
 export default function Card({ word, meaning, translate, pronunciation, audio_url, synonyms, antonyms }: cardProps) {
+    const [showDetails, setShowDetails] = useState(false)
+
+    const toggleDetails = () => {
+        setShowDetails(!showDetails)
+    }
+    
+    console.log("synonyms:", synonyms, typeof synonyms,'aq')
+
     return (
-        <div className="card">
-            <h2>Word: {word}</h2>
-            <p>Meaning: {meaning}</p>
-            <p>Translate: {translate}</p>
-            <p>Pronunciation: {pronunciation}</p>
-            {
-                /**
-                 *  <audio controls src={audio_url}>
-                        Your browser does not support the audio element.
-                    </audio>
-                 * 
-                 */
-            }
-            
-            <h3>Synonyms</h3>
-            <ul>
-                <li>Synonym 1</li>
-                <li>Synonym 2</li>
-            </ul>
-            <h3>Antonyms</h3>
-            <ul>
-                <li>Antonym 1</li>
-                <li>Antonym 2</li>
-            </ul>
+        <div className="card shadow-sm rounded-4 p-4 mt-3">
+            <h2 className="text-primary">{word}</h2>
+            <p><strong>Pronunciation:</strong> {pronunciation}</p>
+            <p><strong>Meaning:</strong> {meaning}</p>
+            <p><strong>Translation:</strong> {translate}</p>
+
+            <button type="button" className="btn btn-sm btn-outline-primary mt-3" onClick={toggleDetails}>
+                {showDetails ? "Hide Details" : "Show Details"}
+            </button>
+
+            {showDetails && (
+                <div className="mt-3">
+
+                    <h6>Synonyms</h6>
+                    <ul>
+                        {synonyms.length != 0 && typeof synonyms === 'object' && synonyms.map((s, index) => (
+                            <li key={index}>{s}</li>
+                        ))}
+                    </ul>
+
+                    <h6>Antonyms</h6>
+                    <ul>
+                        {antonyms.length != 0 && typeof antonyms === 'object' && antonyms.map((a, index) => (
+                            <li key={index}>{a}</li>
+                        ))}
+                    </ul>
+
+                    {audio_url && (
+                        <audio controls>
+                            <source src={audio_url} type="audio/mpeg" />
+                        </audio>
+                    )}
+
+                </div>
+            )}
+           
         </div>
     )
 }
