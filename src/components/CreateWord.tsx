@@ -1,6 +1,5 @@
 import { useState } from "react"
 import axios from "axios"
-import { Modal } from "bootstrap"
 
 export default function CreateWord() {
 
@@ -25,9 +24,9 @@ export default function CreateWord() {
             )
 
             alert("Word created!")
-            const modalElement = document.getElementById("createWordModal")
-            const modal = Modal.getInstance(modalElement!)
-            modal?.hide()
+
+            const closeButton = document.getElementById("closeModalButton")
+            closeButton?.click()
 
         } catch (error) {
             alert("Error creating word")
@@ -35,7 +34,7 @@ export default function CreateWord() {
     }
 
     return (
-        <div className="modal fade" id="createWord">
+        <div className="modal fade" id="createWordModal">
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">
@@ -48,7 +47,7 @@ export default function CreateWord() {
                             <input className="form-control mb-2" placeholder="Word" value={word} onChange={(e)=>setWord(e.target.value)} />
                         </div>
                         <div className="modal-footer">
-                            <button className="btn btn-secondary" data-bs-dismiss="modal">
+                            <button type="button" id="closeModalButton" className="btn btn-secondary" data-bs-dismiss="modal">
                                 Cancel
                             </button>
                             <button className="btn btn-primary">

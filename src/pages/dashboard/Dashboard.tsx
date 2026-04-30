@@ -57,7 +57,7 @@ export default function Dashboard() {
                 antonyms={word.antonyms}
             />
             <button onClick={getWord} className="btn btn-sm btn-outline-success mt-3">Get Word</button>
-            <button className="btn btn-sm btn-outline-primary mt-3" data-bs-toggle="modal" data-bs-target="#createWord"> Create Word </button>
+            <button className="btn btn-sm btn-outline-primary mt-3" data-bs-toggle="modal" data-bs-target="#createWordModal"> Create Word </button>
             <CreateWord />
         </>
     )
