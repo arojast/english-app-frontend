@@ -1,5 +1,5 @@
 import { useState } from "react"
-import axios from "axios"
+import { api } from "../services/api"
 
 export default function CreateWord() {
 
@@ -10,16 +10,9 @@ export default function CreateWord() {
 
         try {
 
-            const token = localStorage.getItem("token")
-
-            await axios.post(
-                "http://localhost:8000/api/words",
+            await api.post('words',
                 {
                     'word': word
-                },{
-                    headers:{
-                        Authorization:`Bearer ${token}`
-                    }
                 }
             )
 
@@ -27,6 +20,7 @@ export default function CreateWord() {
 
             const closeButton = document.getElementById("closeModalButton")
             closeButton?.click()
+            setWord("")
 
         } catch (error) {
             alert("Error creating word")

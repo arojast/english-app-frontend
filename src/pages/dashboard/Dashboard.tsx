@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { api } from '../../services/api'
 import Card from '../../components/Card'
 import CreateWord from "../../components/CreateWord"
 
 export default function Dashboard() {
-    const localToken = localStorage.getItem('token')
 
     const [word, setWord] = useState({
         'word': '',
@@ -18,14 +17,8 @@ export default function Dashboard() {
 
     const getWord = async () => {
         try {        
-            const response = await axios.get(
-                'http://localhost:8000/api/words/random-user',
-                {
-                    headers: {
-                        Authorization: `Bearer ${localToken}`,
-                    },
-                },
-            )
+            const response = await api.get('words/random-user')
+
             setWord({ 
                 ...response.data,
                 synonyms: Array.isArray(response.data.synonyms)
