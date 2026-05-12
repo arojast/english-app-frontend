@@ -1,16 +1,13 @@
-import  type { ReactNode } from 'react'
+import { Outlet } from 'react-router-dom'
 import Navbar from './Navbar'
 
-interface Props {
-    children: ReactNode
-}
 
-export default function Layout({ children }: Props) {
+export default function Layout() {
     return (
         <>
             <Navbar />
             <div className="container mt-4">
-                {children}
+                <Outlet />
             </div>
         </>
     )
