@@ -39,7 +39,7 @@ export default function Dashboard() {
 
     return (
         <>
-            <h1>Dashboard</h1>
+            <h1>Dashboard1</h1>
             <Card
                 word={word.word}
                 meaning={word.meaning}
