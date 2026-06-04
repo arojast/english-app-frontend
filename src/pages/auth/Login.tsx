@@ -29,7 +29,7 @@ export default function Login() {
                 <div className="row justify-content-center">
                     <div className="col-md-4">
                         <div className="card p-4 shadow">
-                            <h2 className="text-center mb-3">Login</h2>
+                            <h2 className="text-center mb-3">English APP</h2>
                             <label className="form-label">Email</label>
                             <input type="text" value={email} onChange={(e) => setEmail(e.target.value) } placeholder='Enter Email' className="form-control"/> <br/>
                             <label className="form-label">Password</label>
