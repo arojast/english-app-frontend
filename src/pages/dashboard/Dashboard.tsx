@@ -5,15 +5,7 @@ import CreateWord from "../../components/CreateWord"
 
 export default function Dashboard() {
 
-    const [word, setWord] = useState({
-        'word': '',
-        'meaning': '',
-        'translate': '',
-        'pronunciation': '',
-        'audio_url': '',
-        'synonyms': [],
-        'antonyms': []
-    })
+    const [word, setWord] = useState([])
 
     const getWord = async () => {
         try {        
