@@ -41,6 +41,7 @@ export default function Dashboard() {
         <>
             <h1>Dashboard</h1>
             <Card
+                id={word.id}
                 word={word.word}
                 meaning={word.meaning}
                 translate={word.translate}
@@ -48,6 +49,8 @@ export default function Dashboard() {
                 audio_url={word.audio_url}
                 synonyms={word.synonyms}
                 antonyms={word.antonyms}
+                is_favorite={!!(word.is_favorite ?? (word as any).pivot?.is_favorite)}
+                is_learned={!!(word.is_learned ?? (word as any).pivot?.is_learned)}
             />
             <button onClick={getWord} className="btn btn-sm btn-outline-success mt-3">
                 <i className="bi bi-shuffle"></i> Get Word

@@ -41,6 +41,7 @@ export default function Words() {
             {words.map((w) => (
               <div className="col-md-6 mb-3" key={w.id}>
                 <Card
+                  id={w.id}
                   word={w.word}
                   meaning={w.meaning}
                   translate={w.translate}
@@ -48,6 +49,8 @@ export default function Words() {
                   audio_url={w.audio_url}
                   synonyms={w.synonyms}
                   antonyms={w.antonyms}
+                  is_favorite={w.is_favorite ?? (w.pivot && w.pivot.is_favorite) ?? false}
+                  is_learned={w.is_learned ?? (w.pivot && w.pivot.is_learned) ?? false}
                 />
               </div>
             ))}
