@@ -33,7 +33,7 @@ export default function Words() {
               getWords()
             }}
           >
-            Search
+            <i className="bi bi-search"></i> Search
           </button>
 
           {/* List */}
@@ -60,7 +60,7 @@ export default function Words() {
               disabled={page === 1}
               onClick={() => setPage(page - 1)}
             >
-              Previous
+              <i className="bi bi-arrow-left"></i> Previous
             </button>
 
             <span>Page {page} of {lastPage}</span>
@@ -70,7 +70,7 @@ export default function Words() {
               disabled={page === lastPage}
               onClick={() => setPage(page + 1)}
             >
-              Next
+              Next <i className="bi bi-arrow-right"></i> 
             </button>
           </div>
 

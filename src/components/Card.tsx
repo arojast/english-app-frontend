@@ -25,7 +25,8 @@ export default function Card({ word, meaning, translate, pronunciation, audio_ur
             <p><strong>Translation:</strong> {translate}</p>
 
             <button type="button" className="btn btn-sm btn-outline-primary mt-3" onClick={toggleDetails}>
-                {showDetails ? "Hide Details" : "Show Details"}
+                {showDetails ? <span><i className="bi bi-eye-slash"></i> Hide Details </span> : 
+                                <span><i className="bi bi-eye"></i> Show Details</span>} 
             </button>
 
             {showDetails && (

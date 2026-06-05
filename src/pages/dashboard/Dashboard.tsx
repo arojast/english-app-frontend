@@ -39,7 +39,7 @@ export default function Dashboard() {
 
     return (
         <>
-            <h1>Dashboard1</h1>
+            <h1>Dashboard</h1>
             <Card
                 word={word.word}
                 meaning={word.meaning}
@@ -49,8 +49,12 @@ export default function Dashboard() {
                 synonyms={word.synonyms}
                 antonyms={word.antonyms}
             />
-            <button onClick={getWord} className="btn btn-sm btn-outline-success mt-3">Get Word</button>
-            <button className="btn btn-sm btn-outline-primary mt-3" data-bs-toggle="modal" data-bs-target="#createWordModal"> Create Word </button>
+            <button onClick={getWord} className="btn btn-sm btn-outline-success mt-3">
+                <i className="bi bi-shuffle"></i> Get Word
+            </button>
+            <button className="btn btn-sm btn-outline-primary mt-3" data-bs-toggle="modal" data-bs-target="#createWordModal"> 
+                <i className="bi bi-plus"></i> Create Word 
+            </button>
             <CreateWord />
         </>
     )

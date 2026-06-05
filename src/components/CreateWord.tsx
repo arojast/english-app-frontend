@@ -42,10 +42,10 @@ export default function CreateWord() {
                         </div>
                         <div className="modal-footer">
                             <button type="button" id="closeModalButton" className="btn btn-secondary" data-bs-dismiss="modal">
-                                Cancel
+                                <i className="bi bi-x"></i> Cancel
                             </button>
                             <button className="btn btn-primary">
-                                Save
+                                <i className="bi bi-floppy"></i> Save
                             </button>
                         </div>
                     </form>

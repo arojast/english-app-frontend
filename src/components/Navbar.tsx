@@ -23,15 +23,15 @@ export default function Navbar() {
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
                             <Link className="nav-link" to="/dashboard">
-                                Dashboard
+                                <i className="bi bi-house"></i> Dashboard
                             </Link>
                             <Link className="nav-link" to="/words">
-                                Words
+                                <i className="bi bi-card-list"></i> Words
                             </Link>
                         </li>
                         <li className="nav-item">
                             <button className="btn btn-danger ms-3" onClick={handleLogout}>
-                                Logout
+                                <i className="bi bi-box-arrow-right"></i> Logout
                             </button>
                         </li>
                     </ul>
