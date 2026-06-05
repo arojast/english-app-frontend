@@ -1,11 +1,23 @@
 import { useEffect, useState } from 'react'
+import type { Word } from "../../types/Word"
 import { api } from '../../services/api'
 import Card from '../../components/Card'
 import CreateWord from "../../components/CreateWord"
 
 export default function Dashboard() {
 
-    const [word, setWord] = useState([])
+    const [word, setWord] = useState<Word>({
+        id: undefined,
+        word: "",
+        meaning: "",
+        translate: "",
+        pronunciation: "",
+        audio_url: "",
+        synonyms: [],
+        antonyms: [],
+        is_favorite: false,
+        is_learned: false,
+    })
 
     const getWord = async () => {
         try {        

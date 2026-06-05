@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import type { Word } from "../../types/Word"
 import { api } from "../../services/api";
 import Card from "../../components/Card";
 
 export default function Words() {
-    const [words, setWords] = useState<any[]>([])
+    const [words, setWords] = useState<Word[]>([])
     const [page, setPage] = useState(1)
     const [lastPage, setLastPage] = useState(1)
     const [search, setSearch] = useState('')
