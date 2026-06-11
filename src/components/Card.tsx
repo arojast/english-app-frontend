@@ -1,23 +1,11 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { api } from "../services/api"
+import  type{ Word } from "../types/Word"
 
-interface cardProps {
-    id: number
-    word: string
-    meaning: string
-    translate: string
-    pronunciation: string
-    audio_url: string
-    synonyms: string[]
-    antonyms: string[]
-    is_favorite?: boolean
-    is_learned?: boolean
-}
-
-export default function Card({ id, word, meaning, translate, pronunciation, audio_url, synonyms, antonyms, is_favorite, is_learned }: cardProps) {
+export default function Card({ id, word, meaning, translate, pronunciation, audio_url, synonyms, antonyms, pivot }: Word) {
     const [showDetails, setShowDetails] = useState(false)
-    const [is_favorite_state, setIsFavorite] = useState<boolean>(!!is_favorite)
-    const [is_learned_state, setIsLearned] = useState<boolean>(!!is_learned)
+    const [is_favorite_state, setIsFavorite] = useState<boolean>(!!pivot.is_favorite)
+    const [is_learned_state, setIsLearned] = useState<boolean>(!!pivot.is_learned)
 
     const toggleDetails = () => {
         setShowDetails(!showDetails)
@@ -54,6 +42,12 @@ export default function Card({ id, word, meaning, translate, pronunciation, audi
             alert("Error updating learned status")
         }
     }
+
+    useEffect(() => {
+        // Sync local state with pivot changes
+        setIsFavorite(!!pivot?.is_favorite)
+        setIsLearned(!!pivot?.is_learned)
+    }, [pivot?.is_favorite, pivot?.is_learned])
 
     return (
         <div  className="card shadow-sm rounded-4 p-4 mt-3">

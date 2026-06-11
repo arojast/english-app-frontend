@@ -15,8 +15,10 @@ export default function Dashboard() {
         audio_url: "",
         synonyms: [],
         antonyms: [],
-        is_favorite: false,
-        is_learned: false,
+        pivot: {
+            is_favorite: false,
+            is_learned: false,
+        }
     })
 
     const getWord = async () => {
@@ -31,6 +33,10 @@ export default function Dashboard() {
                 antonyms: Array.isArray(response.data.antonyms)
                     ? response.data.antonyms
                     : JSON.parse(response.data.antonyms || "[]"),
+                pivot: {
+                    is_favorite: (response.data.pivot && response.data.pivot.is_favorite) ?? false,
+                    is_learned: (response.data.pivot && response.data.pivot?.is_learned) ?? false,
+                }
             })
         } catch (error) {
             alert('Failed to fetch word')
@@ -53,8 +59,7 @@ export default function Dashboard() {
                 audio_url={word.audio_url}
                 synonyms={word.synonyms}
                 antonyms={word.antonyms}
-                is_favorite={!!(word.is_favorite ?? (word as any).pivot?.is_favorite)}
-                is_learned={!!(word.is_learned ?? (word as any).pivot?.is_learned)}
+                pivot={word.pivot}
             />
             <button onClick={getWord} className="btn btn-sm btn-outline-success mt-3">
                 <i className="bi bi-shuffle"></i> Get Word

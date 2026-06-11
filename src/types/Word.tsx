@@ -7,6 +7,8 @@ export interface Word {
     audio_url: string
     synonyms: string[]
     antonyms: string[]
-    is_favorite?: boolean
-    is_learned?: boolean
+    pivot: {
+        is_favorite: boolean
+        is_learned: boolean
+    }
 }
