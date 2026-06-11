@@ -4,6 +4,8 @@ import { api } from '../../services/api'
 import Card from '../../components/Card'
 import CreateWord from "../../components/CreateWord"
 
+import { toast } from 'react-toastify'
+
 export default function Dashboard() {
 
     const [word, setWord] = useState<Word>({
@@ -39,7 +41,7 @@ export default function Dashboard() {
                 }
             })
         } catch (error) {
-            alert('Failed to fetch word')
+            toast.error('Failed to fetch word')
         }
     }
 

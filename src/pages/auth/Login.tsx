@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { api } from '../../services/api'
 
+import { toast } from 'react-toastify'
+
 export default function Login() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -15,7 +17,7 @@ export default function Login() {
             localStorage.setItem('token', response.data.token)
             navigate('/dashboard')
         } catch (error) {
-            alert('Login failed')
+            toast.error('Login failed')
         }
     }
 

@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { api } from '../../services/api'
 import { useNavigate } from 'react-router-dom'
 
+import { toast } from 'react-toastify'
+
 export default function Register() {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -12,19 +14,19 @@ export default function Register() {
     const handleRegister = async () => {
         try {
             if (password !== passwordConfirm) {
-                alert('Passwords do not match')
+                toast.error('Passwords do not match')
                 return
             }
 
             await api.post('register', { name, email, password })
-            alert('Registration successful')
+            toast.success('Registration successful')
             navigate('/')
         } catch (error:any) {
 
             const data = error.response?.data
             console.log(data.message)
 
-            alert('Registration failed: \n' + data?.message )
+            toast.error('Registration failed: \n' + data?.message )
         }
     }
 

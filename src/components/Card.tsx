@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { api } from "../services/api"
 import  type{ Word } from "../types/Word"
 
+import { toast } from 'react-toastify'
+
 export default function Card({ id, word, meaning, translate, pronunciation, audio_url, synonyms, antonyms, pivot }: Word) {
     const [showDetails, setShowDetails] = useState(false)
     const [is_favorite_state, setIsFavorite] = useState<boolean>(!!pivot.is_favorite)
@@ -23,7 +25,7 @@ export default function Card({ id, word, meaning, translate, pronunciation, audi
 
             setIsFavorite(newValue)
         } catch (error) {
-            alert("Error updating favorite status")
+            toast.error("Error updating favorite status")
         }
     }
 
@@ -39,7 +41,7 @@ export default function Card({ id, word, meaning, translate, pronunciation, audi
 
             setIsLearned(newValue)
         } catch (error) {
-            alert("Error updating learned status")
+            toast.error("Error updating learned status")
         }
     }
 

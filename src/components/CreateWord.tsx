@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { api } from "../services/api"
 
+import { toast } from 'react-toastify'
+
 export default function CreateWord() {
 
     const [word, setWord] = useState("")
@@ -16,14 +18,14 @@ export default function CreateWord() {
                 }
             )
 
-            alert("Word created!")
+            toast.success("Word created!")
 
             const closeButton = document.getElementById("closeModalButton")
             closeButton?.click()
             setWord("")
 
-        } catch (error) {
-            alert("Error creating word")
+        } catch (error:any) {
+            toast.error("Error creating word: " + (error.response?.data?.message || error.message))
         }
     }
 
