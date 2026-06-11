@@ -28,6 +28,9 @@ export default function Navbar() {
                             <Link className="nav-link" to="/words">
                                 <i className="bi bi-card-list"></i> Words
                             </Link>
+                            <Link className="nav-link" to="/last">
+                                <i className="bi bi-list-ul"></i> Last additions
+                            </Link>
                         </li>
                         <li className="nav-item">
                             <button className="btn btn-danger ms-3" onClick={handleLogout}>

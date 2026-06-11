@@ -5,6 +5,7 @@ import Dashboard from './pages/dashboard/Dashboard'
 import ProtectedRoute from './routes/ProtectedRoutes'
 import Layout from './components/Layout'
 import Words from './pages/words/Words'
+import Last from './pages/last/Last'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       >
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/words" element={<Words />} />
+        <Route path="/last" element={<Last />} />
       </Route>
     </Routes>
   )
