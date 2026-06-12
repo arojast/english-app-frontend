@@ -3,6 +3,7 @@ import { api } from '../../services/api'
 import { useNavigate } from 'react-router-dom'
 
 import { toast } from 'react-toastify'
+import logo from '/logo.png'
 
 export default function Register() {
     const [name, setName] = useState('')
@@ -40,7 +41,17 @@ export default function Register() {
                 <div className="row justify-content-center">
                     <div className="col-md-4">
                         <div className="card p-4 shadow">
-                            <h2 className="text-center mb-3">Register</h2>
+                            <div className="text-center mb-4">
+                                <img
+                                    src={logo}
+                                    alt="English App"
+                                    width="80"
+                                    className="mb-3"
+                                />
+
+                                <h2>English App</h2>
+                                <h3 className="text-center mb-3">Register</h3>
+                            </div>
                             <label className="form-label">Name</label>
                             <input type="text" value={name} onChange={(e) => setName(e.target.value) } placeholder='Enter Name' className="form-control"/> <br/>
                             <label className="form-label">Email</label>

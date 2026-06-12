@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { api } from '../../services/api'
 
 import { toast } from 'react-toastify'
+import logo from '/logo.png'
 
 export default function Login() {
     const [email, setEmail] = useState('')
@@ -31,7 +32,21 @@ export default function Login() {
                 <div className="row justify-content-center">
                     <div className="col-md-4">
                         <div className="card p-4 shadow">
-                            <h2 className="text-center mb-3">English APP</h2>
+                            <div className="text-center mb-4">
+                                <img
+                                    src={logo}
+                                    alt="English App"
+                                    width="80"
+                                    className="mb-3"
+                                />
+
+                                <h2>English App</h2>
+                                <p className="text-muted">
+                                    Improve your English vocabulary
+                                </p>
+                            </div>
+
+                            {/* <h2 className="text-center mb-3">English APP</h2> */}
                             <label className="form-label">Email</label>
                             <input type="text" value={email} onChange={(e) => setEmail(e.target.value) } placeholder='Enter Email' className="form-control"/> <br/>
                             <label className="form-label">Password</label>

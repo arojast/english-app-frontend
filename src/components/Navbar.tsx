@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
+import logo from '/logo.png'
 
 export default function Navbar() {
     const navigate = useNavigate()
@@ -12,7 +13,16 @@ export default function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/dashboard">English APP</Link>
+                <Link className="navbar-brand" to="/dashboard">
+                    <img
+                        src={logo}
+                        alt="English App"
+                        width="40"
+                        height="40"
+                        className="me-2"
+                    />
+                    English App
+                </Link>
 
                 { /* Hamburger button */ }
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
